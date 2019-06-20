@@ -31,6 +31,14 @@ CREATE TABLE logs(
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
+CREATE TABLE productos( 
+    id_producto integer NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    producto varchar(20) NOT NULL,
+    precio float NOT NULL,
+    existencias integer NOT NULL,
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
 INSERT INTO users (username, password, privilege, status, name, email, other_data, user_hash, change_pwd)
 VALUES ('admin',MD5(concat('admin', 'kuorra_key')), 0, 1, 'Admin', 'admin@gmail.com','TIC:SI', MD5(concat('admin', 'kuorra_key', '2016/06/04')), 0),
 ('guess',MD5(concat('guess', 'kuorra_key')), 1, 1, 'Guess', 'guess@gmail.com','TIC:SI', MD5(concat('guess', 'kuorra_key','2016/06/04')), 0);
@@ -42,3 +50,5 @@ SELECT * FROM sessions;
 CREATE USER 'kuorra'@'localhost' IDENTIFIED BY 'kuorra.2018';
 GRANT ALL PRIVILEGES ON kuorra_login.* TO 'kuorra'@'localhost';
 FLUSH PRIVILEGES;
+
+
